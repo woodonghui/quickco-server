@@ -1,0 +1,39 @@
+{
+  "name": "Outlet",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "address": {
+      "type": "string",
+      "required": false
+    },
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "contact": {
+      "type": "string",
+      "required": false
+    }
+  },
+  "validations": [],
+  "relations": {
+    "saleRecords": {
+      "type": "hasMany",
+      "model": "SaleRecord",
+      "foreignKey": "outletid"
+    }
+  },
+  "acls": [
+    {
+      "permission": "DENY",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "property": ["deleteById"]
+    }
+  ],
+  "methods": {}
+}
